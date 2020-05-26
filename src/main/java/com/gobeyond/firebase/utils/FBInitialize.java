@@ -12,23 +12,19 @@ import com.google.firebase.FirebaseOptions;
 
 @Service
 public class FBInitialize {
-
-	@Value("${app.firebase-config}")
-	private String firebaseConfig;
-
-	@PostConstruct
-	public void initialize() {
-		try {
-
-			FirebaseOptions options = new FirebaseOptions.Builder()
-					.setCredentials(
-							GoogleCredentials.fromStream(new ClassPathResource(firebaseConfig).getInputStream()))
-					.setDatabaseUrl("https://fir-and-spring-boot.firebaseio.com").build();
-
-			FirebaseApp.initializeApp(options);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-	}
-}
+	/*
+	 * 
+	 * @Value("${app.firebase-config}") private String firebaseConfig;
+	 * 
+	 * @PostConstruct public void initialize() { try {
+	 * 
+	 * FirebaseOptions options = new FirebaseOptions.Builder() .setCredentials(
+	 * GoogleCredentials.fromStream(new
+	 * ClassPathResource(firebaseConfig).getInputStream()))
+	 * .setDatabaseUrl("https://fir-and-spring-boot.firebaseio.com").build();
+	 * 
+	 * FirebaseApp.initializeApp(options); } catch (Exception e) {
+	 * e.printStackTrace(); }
+	 * 
+	 * }
+	 */}

@@ -12,16 +12,12 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@FirebaseDocument("/patient")
-public class Patient {
+@FirebaseDocument("/albums")
+public class Album {
 
-	@FirebaseId
-	private String id;
+    @FirebaseId
+    private String id;
 
-	private String name;
-
-	private int age;
-
-	private String city;
+    private String title;
 
 }
