@@ -5,7 +5,6 @@ import java.util.concurrent.ExecutionException;
 import org.springframework.stereotype.Service;
 
 import com.gobeyond.firebase.model.Patient;
-import com.gobeyond.firebase.repository.PatientRepository;
 import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.DocumentReference;
 import com.google.cloud.firestore.DocumentSnapshot;
@@ -16,11 +15,6 @@ import com.google.firebase.cloud.FirestoreClient;
 @Service
 public class PatientService {
 
-	private PatientRepository patientRepository;
-
-	public PatientService(PatientRepository patientRepository) {
-		this.patientRepository = patientRepository;
-	}
 
 	public static final String COL_NAME = "patient";
 
@@ -33,8 +27,6 @@ public class PatientService {
 	}
 
 	public Patient getPatientDetails(String name) throws InterruptedException, ExecutionException {
-		
-		patientRepository.findAll(name);
 		
 		Firestore dbFirestore = FirestoreClient.getFirestore();
 		DocumentReference documentReference = dbFirestore.collection(COL_NAME).document(name);
